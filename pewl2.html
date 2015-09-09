@@ -1,0 +1,102 @@
+<head>
+  <title>Bienvenue dans Pewl 2.0</title>
+</head>
+
+ 
+<body>
+  <div class="container">
+    <header>
+      <h1>Pewl 2.0 (meteor version)</h1>
+      <label class="hide-uneditable">
+      	<input type="checkbox" checked="{{hideUneditable}}" />
+      	Masquer les poules non-éditables
+      </label>
+	  <h3>{{poulesCountDisplay}}</h3>
+
+      <form class="new-poule">
+        <input type="text" name="text" placeholder="Entrez ici le nom de votre poule" />
+      </form>
+    </header>
+
+    <ul>
+      {{#each poules}}
+
+        {{> poule}}
+
+      {{/each}}
+    </ul>
+
+  </div>
+
+</body>
+
+ 
+<template name="poule">
+	  
+  <li class="{{#if editable}}editable{{/if}}">
+  	<div>Nom : {{name}}<button class="delete">&times;</button></div>
+  	<div>Editable : <input type="checkbox" checked="{{editable}}" class="toggle-editable" /></div>
+  	<div class="poule-table"> <!-- la table de la poule -->
+  		<div class="poule-col"> <!-- les tireurs -->
+  			<div class="poule-cell poule-cell-name">NOMS</div>
+	  		{{#each tireurs}}
+	  		<div class="poule-cell poule-cell-name edit-name">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  		<div class="poule-cell poule-cell-name"><button class="btn-ajout-tireur">Ajouter</button></div>
+
+	  	</div>
+	  	{{#each cols}}
+  		<div class="poule-col"> <!-- les scores -->
+  			<div class="poule-cell poule-cell-case">{{colId}}</div>
+	  			{{#each this.rows}}
+	  				<div class="poule-cell poule-cell-case">{{this.val}}</div>
+	  			{{/each}}
+	  	</div>
+	  	{{/each}}
+  		<div class="poule-col"> <!-- les ratios -->
+  			<div class="poule-cell poule-cell-case">Co.</div>
+	  		{{#each ratios}}
+	  		<div class="poule-cell poule-cell-case">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  	</div>
+  		<div class="poule-col"> <!-- les tds -->
+  			<div class="poule-cell poule-cell-case">TD</div>
+	  		{{#each tds}}
+	  		<div class="poule-cell poule-cell-case">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  	</div>
+  		<div class="poule-col"> <!-- les trs -->
+  			<div class="poule-cell poule-cell-case">TR</div>
+	  		{{#each trs}}
+	  		<div class="poule-cell poule-cell-case">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  	</div>
+  		<div class="poule-col"> <!-- les gas -->
+  			<div class="poule-cell poule-cell-case">GA</div>
+	  		{{#each gas}}
+	  		<div class="poule-cell poule-cell-case">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  	</div>
+  		<div class="poule-col"> <!-- les places -->
+  			<div class="poule-cell poule-cell-case">Pl.</div>
+	  		{{#each places}}
+	  		<div class="poule-cell poule-cell-case">
+	  			{{this}}
+	  		</div>
+	  		{{/each}}
+	  	</div>
+
+  	</div>
+  	<div class="clear-both"></div>
+  </li>
+</template>
