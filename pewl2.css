@@ -125,22 +125,29 @@ header .hide-completed {
 }
 
 .poule-cell {
+  float: left;
 	padding: 2px 3px;
 	text-align: center;
 	height: 30px;
 	line-height: 30px;
-	border: solid 1px #ddd;
 }
-
+.cell-bottom-left {
+  border-bottom: solid 1px #ddd;
+  border-left: solid 1px #ddd;
+}
+.cell-top {
+  border-top: solid 1px #ddd;
+}
+.cell-right {
+  border-right: solid 1px #ddd;
+}
 .poule-cell-name {
 	width: 200px;
 	text-align: left;
 }
 .poule-cell-score {
-	width: 2	00px;
 }
 .poule-cell-cell {
-	float: left;
 	width: 30px;
 }
 .poule-cell-case {
@@ -151,6 +158,14 @@ header .hide-completed {
 }
 .clear-both {
 	clear: both;
+}
+.state {
+  float: right;
+  background: none;
+  font-size: 0.8em;
+  border: none;
+  position: relative;
+  top: -10px;
 }
 @media (max-width: 600px) {
   li {
